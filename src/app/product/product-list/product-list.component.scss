@@ -19,3 +19,12 @@ table a {
     color: mat-color($mat-gray, 600);
   }
 }
+
+.filter-header {
+  background: white;
+  display: flex;
+  padding: 15px 15px 0 15px;
+  div {
+    flex: 1 1 auto;
+  }
+}

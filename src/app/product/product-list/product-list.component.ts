@@ -4,7 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { QueryParams, QueryResult } from '../../shared/http.service';
 import { Product } from '../shared/product.model';
 import { finalize } from 'rxjs/operators';
-import { PageEvent } from '@angular/material';
+import { PageEvent, MatSelectChange } from '@angular/material';
+import { CategoryService } from '../../category/shared/category.service';
+import { Category } from '../../category/shared/category.model';
+import { WSAEDQUOT } from 'constants';
 
 @Component({
   selector: 'hulk-product-list',
@@ -15,6 +18,8 @@ export class ProductListComponent implements OnInit {
 
   displayedColumns = ['id', 'name', 'price', 'category', 'created', 'updated', 'actions'];
 
+  categories: Category[] = [];
+
   dataSource: QueryResult<Product> = {
     items: [],
     total: 0
@@ -22,21 +27,26 @@ export class ProductListComponent implements OnInit {
 
   queryParams: QueryParams;
 
-  constructor(private _service: ProductService,
+  constructor(private _productService: ProductService,
+    private _categoryService: CategoryService,
     private _route: ActivatedRoute,
     private _router: Router) { }
 
   ngOnInit() {
+    this._categoryService.get().subscribe((data: Category[]) => this.categories = data);
     this._route.queryParams.subscribe(
       queryParams => {
-        this.queryParams = queryParams;
-        this._loadDataSource(queryParams);
+        this.queryParams = Object.assign({}, queryParams);
+        if (+(queryParams.category) === 0)
+          delete this.queryParams['category'];
+
+        this._loadDataSource(this.queryParams);
       }
     );
   }
 
   private _loadDataSource(params: QueryParams) {
-    this._service.get(params).subscribe(
+    this._productService.get(params).subscribe(
       (data: QueryResult<Product>) => this.dataSource = data,
       errorResponse => console.log(errorResponse)
     );
@@ -66,6 +76,16 @@ export class ProductListComponent implements OnInit {
   onClean(input: any) {
     input.value = '';
     this.onSearch('');
+  }
+
+  onSelectionChange(select: MatSelectChange) {
+    const url = this._router.url.split('\?')[0];
+    this._router.navigate([url], {
+      queryParams: {
+        category: select.value
+      },
+      queryParamsHandling: 'merge'
+    });
   }
 
 }

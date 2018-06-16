@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule, MatCardModule, MatPaginatorModule } from '@angular/material';
+import { MatTableModule, MatCardModule, MatPaginatorModule, MatSelectModule } from '@angular/material';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -21,6 +21,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     MatTableModule,
     MatCardModule,
     MatPaginatorModule,
+    MatSelectModule
   ],
   declarations: [
     ProductListComponent,

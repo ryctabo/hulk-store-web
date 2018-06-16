@@ -1,15 +1,29 @@
 <div class="row">
   <div class="col-xs-12" style="margin-bottom: 10px;">
-    <a mat-button routerLink="new" >CREATE A NEW PRODUCT</a>
+    <a mat-button routerLink="new">CREATE A NEW PRODUCT</a>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12 mat-elevation-z2" style="padding:0">
-    <div style="background: white; padding: 15px 15px 0 15px">
-      <mat-form-field>
-        <input matInput #inputSearch type="text" placeholder="Filter" (keyup.enter)="onSearch(inputSearch.value)">
-        <button mat-icon-button (click)="onClean(inputSearch)" matSuffix><mat-icon>close</mat-icon></button>
-      </mat-form-field>
+    <div class="filter-header">
+      <div class="col-xs-8">
+        <mat-form-field>
+          <input matInput #inputSearch type="text" placeholder="Filter" (keyup.enter)="onSearch(inputSearch.value)">
+          <button mat-icon-button (click)="onClean(inputSearch)" matSuffix>
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="col-xs-4">
+        <mat-form-field>
+          <mat-select placeholder="Categories" (selectionChange)="onSelectionChange($event)" [value]="0">
+            <mat-option [value]="0">All items</mat-option>
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
     <table mat-table [dataSource]="dataSource.items">
       <ng-container matColumnDef="id">
@@ -47,11 +61,13 @@
       </ng-container>
 
       <ng-container matColumnDef="actions">
-          <th style="width: 40px" mat-header-cell *matHeaderCellDef>Edit</th>
-          <td style="width: 40px" mat-cell *matCellDef="let product">
-            <a mat-icon-button [routerLink]="[product.id, 'edit']"><mat-icon>create</mat-icon></a>
-          </td>
-        </ng-container>
+        <th style="width: 40px" mat-header-cell *matHeaderCellDef>Edit</th>
+        <td style="width: 40px" mat-cell *matCellDef="let product">
+          <a mat-icon-button [routerLink]="[product.id, 'edit']">
+            <mat-icon>create</mat-icon>
+          </a>
+        </td>
+      </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
