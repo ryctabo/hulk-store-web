@@ -5,6 +5,32 @@
   font-size: $size;
 }
 
+.container {
+  display: flex;
+  .icon {
+    margin-right: 10px;
+  }
+  .icon, .title {
+    align-self: center;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.menu a {
+  display: flex;
+  padding: 18px;
+  &:hover {
+    background: rgba($color: #000, $alpha: .03);
+  }
+}
+
+.actived {
+  background: rgba($color: #000, $alpha: .05);
+}
+
 .mat-toolbar {
   @include mat-elevation(2);
   z-index: 10;
