@@ -1,0 +1,30 @@
+@import '~@angular/material/theming';
+
+table, .mat-form-field {
+  width: 100%;
+}
+
+table a {
+  color: mat-color($mat-cyan, 900);
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.mat-icon-button {
+  &:hover {
+    background: rgba($color: #000, $alpha: .08);
+  }
+  .mat-icon {
+    color: mat-color($mat-gray, 600);
+  }
+}
+
+.filter-header {
+  background: white;
+  display: flex;
+  padding: 15px 15px 0 15px;
+  div {
+    flex: 1 1 auto;
+  }
+}

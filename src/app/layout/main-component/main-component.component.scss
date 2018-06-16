@@ -1,0 +1,71 @@
+@import '~@angular/material/theming';
+@mixin mat-icon-size($size: 24px) {
+  height: $size;
+  width: $size;
+  font-size: $size;
+}
+
+.container {
+  display: flex;
+  .icon {
+    margin-right: 10px;
+  }
+  .icon, .title {
+    align-self: center;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.menu a {
+  display: flex;
+  padding: 18px;
+  &:hover {
+    background: rgba($color: #000, $alpha: .03);
+  }
+}
+
+.actived {
+  background: rgba($color: #000, $alpha: .05);
+}
+
+.mat-toolbar {
+  @include mat-elevation(2);
+  z-index: 10;
+}
+
+.main-container {
+  margin: 25px;
+}
+
+nav {
+  margin-top: 20px;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    li a {
+      position: relative;
+      display: flex;
+      font-weight: 500;
+      width: 250px;
+      padding: 12px 25px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      &:hover {
+        background: rgba($color: #000, $alpha: .03);
+      }
+      .mat-icon {
+        margin-right: 16px;
+        @include mat-icon-size(24px);
+      }
+      .mat-icon,
+      span {
+        align-self: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import '~@angular/material/theming';
+
+.nf-container {
+  background: mat-color($mat-gray, 100);
+  color: mat-color($mat-blue-grey, 700);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 60px 10px 50px 10px;
+  text-align: center;
+  text-transform: uppercase;
+
+  h1 {
+    color: white;
+    font-size: 7em;
+    font-weight: 400;
+    margin: 20px 0 0 0;
+    text-shadow: 0 2px 1px rgba($color: #000, $alpha: .1);
+  }
+
+  section, a {
+    margin-top: 25px;
+  }
+
+  a {
+    background: mat-color($mat-cyan, 700);
+    color: white;
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  background: mat-color($mat-cyan, 900);
+  color: rgba($color: #FFF, $alpha: .7);
+  padding: 25px;
+  font-size: .8em;
+  font-weight: 300;
+
+  span {
+    font-weight: 500;
+  }
+}

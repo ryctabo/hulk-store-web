@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-xs-7">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let category"> {{category.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let category"> {{category.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th style="width: 50px" mat-header-cell *matHeaderCellDef></th>
+        <td style="width: 50px" mat-cell *matCellDef="let category">
+          <button mat-icon-button (click)="delete(category.id)" >
+              <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['id', 'name', 'action']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'action'];"></tr>
+    </table>
+  </div>
+  <div class="col-xs-5">
+    <mat-card>
+      <mat-card-title>Create a new category</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="categoryForm" (ngSubmit)="save()">
+          <mat-form-field>
+            <input matInput formControlName="name" type="text" placeholder="Category name">
+            <mat-error>Category name is required</mat-error>
+          </mat-form-field>
+          <div style="text-align: right">
+            <button mat-button color="primary" [disabled]="!categoryForm.valid">SAVE</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

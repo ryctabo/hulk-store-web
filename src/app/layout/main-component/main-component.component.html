@@ -1,0 +1,20 @@
+<header>
+  <mat-toolbar color="primary">
+    <div class="container">
+      <a class="icon" routerLink=""><img src="assets/hulk.svg" width="48"></a>
+      <span class="title"><a routerLink="">Hulk Store</a></span>
+      <div class="spacer"></div>
+      <div class="menu">
+        <a [routerLink]="['/categories']" routerLinkActive="actived">Categories</a>
+      </div>
+      <div class="menu">
+        <a [routerLink]="['/products']" routerLinkActive="actived">Products</a>
+      </div>
+    </div>
+  </mat-toolbar>
+</header>
+<div class="container" style="margin-top: 20px">
+  <div style="width: 100%">
+    <router-outlet></router-outlet>
+  </div>
+</div>
