@@ -13,7 +13,7 @@ import { PageEvent } from '@angular/material';
 })
 export class ProductListComponent implements OnInit {
 
-  displayedColumns = ['id', 'name', 'price', 'category', 'created', 'updated'];
+  displayedColumns = ['id', 'name', 'price', 'category', 'created', 'updated', 'actions'];
 
   dataSource: QueryResult<Product> = {
     items: [],
@@ -61,6 +61,11 @@ export class ProductListComponent implements OnInit {
       },
       queryParamsHandling: 'merge'
     });
+  }
+
+  onClean(input: any) {
+    input.value = '';
+    this.onSearch('');
   }
 
 }
