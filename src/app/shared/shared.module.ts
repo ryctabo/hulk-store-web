@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import {
   MatFormFieldModule,
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatInputModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 import { KeysPipe } from './keys.pipe';
@@ -14,14 +16,18 @@ import { KeysPipe } from './keys.pipe';
 
     /** Material Design Modules */
     MatIconModule,
-    MatFormFieldModule,
     MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
   ],
   exports: [
     /** Modules */
     MatIconModule,
-    MatFormFieldModule,
     MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
 
     /** Pipes */
     KeysPipe
