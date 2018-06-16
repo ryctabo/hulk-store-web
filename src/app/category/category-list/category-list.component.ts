@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Category } from '../shared/category.model';
 import { CategoryService } from '../shared/category.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
-import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'hulk-category-list',

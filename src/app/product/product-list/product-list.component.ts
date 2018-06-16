@@ -3,11 +3,9 @@ import { ProductService } from '../shared/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QueryParams, QueryResult } from '../../shared/http.service';
 import { Product } from '../shared/product.model';
-import { finalize } from 'rxjs/operators';
 import { PageEvent, MatSelectChange } from '@angular/material';
 import { CategoryService } from '../../category/shared/category.service';
 import { Category } from '../../category/shared/category.model';
-import { WSAEDQUOT } from 'constants';
 
 @Component({
   selector: 'hulk-product-list',
