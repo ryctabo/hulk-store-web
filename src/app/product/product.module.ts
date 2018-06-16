@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ProductListComponent } from './product-list/product-list.component';
 import { RouterModule } from '@angular/router';
 import { ProductEditorComponent } from './product-editor/product-editor.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ProductEditorComponent } from './product-editor/product-editor.componen
   ],
   declarations: [
     ProductListComponent,
-    ProductEditorComponent
+    ProductEditorComponent,
+    ProductDetailComponent
   ]
 })
 export class ProductModule { }
