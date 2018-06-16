@@ -10,8 +10,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$hulkstore-primary: mat-palette($mat-indigo);
-$hulkstore-accent:  mat-palette($mat-pink, A200, A100, A400);
+$hulkstore-primary: mat-palette($mat-cyan);
+$hulkstore-accent:  mat-palette($mat-amber, 600);
 
 // The warn palette is optional (defaults to red).
 $hulkstore-warn:    mat-palette($mat-red);
@@ -31,7 +31,9 @@ $hulkstore-theme: mat-light-theme($hulkstore-primary, $hulkstore-accent, $hulkst
 }
 
 html, body {
+  background: mat-color($mat-gray, 100);
   font-family: 'Roboto', sans-serif;
+  color: mat-color($mat-gray, 600);
   margin: 0;
 }
 

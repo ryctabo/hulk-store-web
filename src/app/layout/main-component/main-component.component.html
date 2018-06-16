@@ -1,0 +1,28 @@
+<header>
+    <mat-toolbar color="primary">Hulk Store App</mat-toolbar>
+  </header>
+  <div class="row">
+    <div class="col-xs-2">
+      <nav>
+        <ul>
+          <li>
+            <a [routerLink]="['/categories']" routerLinkActive="actived">
+              <mat-icon>info</mat-icon>
+              <span>Categories</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/products']" routerLinkActive="actived">
+              <mat-icon>info</mat-icon>
+              <span>Products</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-xs-10">
+      <div class="main-container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

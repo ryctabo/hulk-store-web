@@ -2,14 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'hulk-root',
-  templateUrl: './root.component.html',
-  styleUrls: ['./root.component.scss']
+  template: '<router-outlet></router-outlet>',
 })
-export class RootComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class RootComponent {}
