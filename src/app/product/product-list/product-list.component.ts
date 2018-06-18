@@ -39,6 +39,7 @@ export class ProductListComponent implements OnInit {
           delete this.queryParams['category'];
 
         this._loadDataSource(this.queryParams);
+        console.log(this.queryParams);
       }
     );
   }

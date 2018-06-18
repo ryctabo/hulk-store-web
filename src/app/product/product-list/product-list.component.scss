@@ -4,6 +4,10 @@ table, .mat-form-field {
   width: 100%;
 }
 
+.spacer {
+  flex: 1 1 auto;
+}
+
 table a {
   color: mat-color($mat-cyan, 900);
   &:hover {

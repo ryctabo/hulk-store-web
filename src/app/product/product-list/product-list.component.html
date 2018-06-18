@@ -1,5 +1,8 @@
-<div class="row">
-  <div class="col-xs-12" style="margin-bottom: 10px;">
+<div class="row" style="margin-bottom: 10px;">
+  <div class="col-xs-6" style="font-size: 1.5em">
+    Product List
+  </div>
+  <div class="col-xs-6" style="text-align: right">
     <a mat-button routerLink="new">CREATE A NEW PRODUCT</a>
   </div>
 </div>
@@ -16,7 +19,7 @@
       </div>
       <div class="col-xs-4">
         <mat-form-field>
-          <mat-select placeholder="Categories" (selectionChange)="onSelectionChange($event)" [value]="0">
+          <mat-select placeholder="Categories" (selectionChange)="onSelectionChange($event)" [value]="+queryParams['category'] || 0">
             <mat-option [value]="0">All items</mat-option>
             <mat-option *ngFor="let category of categories" [value]="category.id">
               {{category.name}}
@@ -72,12 +75,8 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-paginator (page)="onPage($event)"
-      [showFirstLastButtons]="true"
-      [pageSizeOptions]="[10, 20, 50]"
-      [pageSize]="queryParams ? queryParams.size : null"
-      [pageIndex]="queryParams ? (queryParams.start / queryParams.size) : null"
-      [length]="dataSource ? dataSource.total : 0">
+    <mat-paginator (page)="onPage($event)" [showFirstLastButtons]="true" [pageSizeOptions]="[10, 20, 50]" [pageSize]="queryParams ? queryParams.size : null"
+      [pageIndex]="queryParams ? (queryParams.start / queryParams.size) : null" [length]="dataSource ? dataSource.total : 0">
     </mat-paginator>
   </div>
 </div>

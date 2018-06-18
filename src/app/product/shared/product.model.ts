@@ -8,3 +8,11 @@ export interface Product {
   created?: Date | string;
   updated?: Date | string;
 }
+
+export interface Stock {
+  index?: number;
+  type: 'INPUT' | 'OUTPUT';
+  amount: number;
+  message: string;
+  created?: Date | string;
+}
