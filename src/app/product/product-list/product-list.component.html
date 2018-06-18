@@ -19,7 +19,7 @@
       </div>
       <div class="col-xs-4">
         <mat-form-field>
-          <mat-select placeholder="Categories" (selectionChange)="onSelectionChange($event)" [value]="0">
+          <mat-select placeholder="Categories" (selectionChange)="onSelectionChange($event)" [value]="+queryParams['category'] || 0">
             <mat-option [value]="0">All items</mat-option>
             <mat-option *ngFor="let category of categories" [value]="category.id">
               {{category.name}}

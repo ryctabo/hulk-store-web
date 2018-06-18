@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { ProductResolver } from './product/shared/product-resolver.service';
+
 import { NotFoundComponent } from './layout/not-found/not-found.component';
 import { MainComponentComponent } from './layout/main-component/main-component.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
@@ -22,6 +24,7 @@ const routes: Routes = [
           { path: 'new', component: ProductEditorComponent },
           {
             path: ':id',
+            resolve: { product: ProductResolver},
             children: [
               { path: '', component: ProductDetailComponent },
               { path: 'edit', component: ProductEditorComponent }
