@@ -1,3 +1,11 @@
+<div class="row" style="margin-bottom: 10px;">
+    <div class="col-xs-7" style="font-size: 1.5em">
+      Category List
+    </div>
+    <div class="col-xs-5" style="font-size: 1.5em">
+      Category Form
+    </div>
+  </div>
 <div class="row">
   <div class="col-xs-7">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
@@ -12,7 +20,7 @@
       </ng-container>
 
       <ng-container matColumnDef="action">
-        <th style="width: 50px" mat-header-cell *matHeaderCellDef></th>
+        <th style="width: 50px" mat-header-cell *matHeaderCellDef>Delete</th>
         <td style="width: 50px" mat-cell *matCellDef="let category">
           <button mat-icon-button (click)="delete(category.id)" >
               <mat-icon>delete</mat-icon>

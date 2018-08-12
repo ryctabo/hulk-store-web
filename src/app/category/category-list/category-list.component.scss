@@ -1,7 +1,18 @@
+@import '~@angular/material/theming';
+
 table {
   width: 100%;
 }
 
 .mat-form-field {
   width: 100%;
+}
+
+.mat-icon-button {
+  &:hover {
+    background: rgba($color: #000, $alpha: .08);
+  }
+  .mat-icon {
+    color: mat-color($mat-gray, 600);
+  }
 }
