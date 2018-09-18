@@ -32,3 +32,10 @@ table {
 .green {
   color: mat-color($mat-green, 600);
 }
+
+.empty {
+  color: mat-color($mat-gray, 500);
+  font-size: 1.3em;
+  text-align: center;
+  padding: 25px;
+}
