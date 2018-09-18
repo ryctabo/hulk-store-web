@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule, MatCardModule, MatPaginatorModule, MatSelectModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
+
+import {
+  MatTableModule,
+  MatCardModule,
+  MatPaginatorModule,
+  MatSelectModule,
+  MatDialogModule
+} from '@angular/material';
 
 import { SharedModule } from '../shared/shared.module';
 
 import { ProductListComponent } from './product-list/product-list.component';
-import { RouterModule } from '@angular/router';
 import { ProductEditorComponent } from './product-editor/product-editor.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { StockEditorComponent } from './stock-editor/stock-editor.component';
 
 @NgModule({
   imports: [
@@ -21,12 +29,15 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     MatTableModule,
     MatCardModule,
     MatPaginatorModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   declarations: [
     ProductListComponent,
     ProductEditorComponent,
-    ProductDetailComponent
-  ]
+    ProductDetailComponent,
+    StockEditorComponent
+  ],
+  entryComponents: [StockEditorComponent]
 })
 export class ProductModule { }

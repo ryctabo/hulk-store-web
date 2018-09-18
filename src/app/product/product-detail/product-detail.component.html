@@ -3,7 +3,7 @@
     <span>Product Detail</span>
   </div>
   <div class="col-xs-6" style="text-align: right">
-    <button mat-button color="primary">NEW STOCK</button>
+    <button mat-button color="primary" (click)="onCreateStockClick()">NEW STOCK</button>
     <a mat-button [routerLink]="['/products']">BACK</a>
   </div>
 </div>

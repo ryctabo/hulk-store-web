@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Create a new stock</h2>
+<form [formGroup]="stockForm" (ngSubmit)="onSave()">
+  <mat-dialog-content>
+    <div class="row">
+      <div class="col-xs-6">
+        <mat-form-field>
+          <mat-select formControlName="type" placeholder="Stock type" cdkFocusInitial>
+            <mat-option value="INPUT">Input</mat-option>
+            <mat-option value="OUTPUT">Output</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-xs-6">
+        <mat-form-field>
+          <input matInput formControlName="amount" type="number" placeholder="Amount">
+          <mat-error *ngIf="stockForm.get('amount').hasError('required')">Amount is required</mat-error>
+          <mat-error *ngIf="stockForm.get('amount').hasError('min')">Amount must be greater than 0</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-xs-12">
+        <mat-form-field>
+          <mat-label>Message</mat-label>
+          <textarea matInput formControlName="message" placeholder="Explain briefly the reason for the stock of the inventory"></textarea>
+          <mat-error>The stock message is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <div style="text-align: right; width: 100%">
+      <button mat-button type="button" mat-dialog-close>CANCEL</button>
+      <button mat-button type="submit" color="primary" [disabled]="!stockForm.valid">SAVE</button>
+    </div>
+  </mat-dialog-actions>
+</form>

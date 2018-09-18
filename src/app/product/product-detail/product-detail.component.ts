@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Product, Stock } from '../shared/product.model';
 import { StockService } from '../shared/stock.service';
 import { QueryResult } from '../../shared/http.service';
+import { MatDialog } from '@angular/material';
+import { StockEditorComponent } from '../stock-editor/stock-editor.component';
 
 @Component({
   selector: 'hulk-product-detail',
@@ -31,14 +33,26 @@ export class ProductDetailComponent implements OnInit {
   }
 
   constructor(private _service: StockService,
+    private _dialog: MatDialog,
     private _route: ActivatedRoute) { }
 
   ngOnInit() {
     this.product = this._route.snapshot.data['product'];
+    this._getDataSource();
+  }
+
+  private _getDataSource() {
     this._service.get(this.product.id).subscribe(
       data => this.dataSource = data,
       error => console.log(error)
     );
+  }
+
+  onCreateStockClick() {
+    const dialogRef = this._dialog.open(StockEditorComponent, { width: '500px' });
+    dialogRef.afterClosed().subscribe(() => {
+      this._getDataSource();
+    });
   }
 
 }
